@@ -34,6 +34,7 @@ def select_data(request):
                  tuples]
     ordered_items = Item.objects.order_by('name').all()[1:4]
     ordered_items = [i.id for i in ordered_items]
+    
     aggregated = Item.objects.values('department__shop').annotate(
         amount=Count('id'), max=Max('price'), min=Min('price'),
         avg=Avg('price')).filter(amount__gt=1).all()
