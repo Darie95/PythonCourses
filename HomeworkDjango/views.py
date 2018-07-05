@@ -188,6 +188,7 @@ def template(request):
     })
 
 
+
 class ItemCreateView(CreateView):
     template_name = 'create_item.html'
     success_url = '/'
