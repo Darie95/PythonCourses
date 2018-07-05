@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% for item in all_items %}
+    {{ item.name }} - {{ item.price }} {{ item.department.shop.name }} <br>
+{% endfor %}
+
+{% for shop in strange_shops %}
+    <h3>{{ shop.name }}</h3>
+    {% for dep in shop.departments.all %}
+        <h5>{{ dep.sphere }}</h5>
+        {% for item in dep.items.all %}
+            <b>{{ item.name }}</b><br>
+            {% endfor %}
+        {% endfor %}
+{% endfor %}
+</body>
+</html>

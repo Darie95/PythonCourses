@@ -1,0 +1,26 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Моя вкладка</title>
+</head>
+<body>
+<form method="post" enctype="multipart/form-data">
+{% csrf_token %}
+    <label> Название: <input type="text" name="name" required> </label><br><br>
+    <label> Описание: <input type="text" name="description" required> </label><br><br>
+    <label> Цена: <input type="number" name="price" required> </label><br><br>
+    <label>Отдел: <select name="department">
+        {% for department in departments %}
+        <option value={{ department.id }}>
+            {{ department.sphere }} из {{ department.shop.name }}
+        </option>
+        {% endfor %}
+    </select>
+    </label><br><br>
+    <label>
+        Изображение: <input type="file" name="image" accept="image/*">
+    </label><br><br>price
+<button type="submit">Сохранить</button>
+</form>
+</body>
+</html>

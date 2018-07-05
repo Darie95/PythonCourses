@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+{% load  static %}
+
+{% block title %}Введите новый товар{% endblock %}
+
+{% block content %}
+    <form  method="POST" enctype="multipart/form-data">
+
+    {% csrf_token %}
+        <div >
+          {{ form.name.label_tag }}
+            {{ form.name }}
+
+        </div><br>
+        <div >
+          {{ form.price.label_tag }}
+            {{ form.price }}
+        </div><br>
+        <div >
+          {{ form.description.label_tag }}
+            {{ form.description }}
+        </div><br>
+    <p>
+        <div >
+        {{ form.creation_date.label_tag }}
+        {{ form.creation_date }}
+        </div><br>
+    <p>
+      <div name="image">
+
+        {{ form.image.label_tag }}
+        {{ form.image }}
+
+
+        </div>
+    <p>
+
+        <div >
+            {{ form.department.label_tag }}
+            <select name="department">
+              <option value="" disabled selected>Выберите департамент</option>
+                {% for dep in departments %}
+              <option value="{{ dep.id }}">{{ dep.sphere }}</option>
+              {% endfor %}
+            </select>
+
+        </div>
+
+            <label>
+        {{ form.is_sold }}
+           <span> {{ form.is_sold.label }}</span>
+        </label>
+    <p>
+        <button type="submit">Сохранить</button>
+
+    </form>
+
+
+
+{% endblock %}

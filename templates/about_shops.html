@@ -1,0 +1,33 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ shops.name }}</title>
+</head>
+<h4> {{ shops.name }} </h4>
+{% with shops.departments.all as deps%}
+{% for dep in deps %}
+        <h5>{{dep.sphere }}</h5>
+
+
+        <table border = "1">
+         <tr>
+            <td>Название</td>
+            <td>Описание</td>
+            <td>Цена</td>
+         </tr>
+         {% with dep.items.all as items_dep%}
+         {% for i in dep.items.all %}
+             <tr>
+             <td>{{i.name}}</td>
+             <td>{{i.description}}</td>
+             <td>{{i.price}}</td>
+          </tr>
+         {% endfor %}
+        {% endwith %}
+        </table> <br>
+{% endfor %}
+{% endwith %}
+<a href="{% url 'add_dep' shops.id %}"><img width=50 src="{% static 'dep_add.png'%}"> </a>

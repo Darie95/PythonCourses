@@ -1,0 +1,16 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Добавить магазин</title>
+</head>
+<body>
+<form method="post">
+{% csrf_token %}
+    <label> Название: <input type="text" name="name" required> </label><br><br>
+    <label> Адрес: <input type="text" name="address" required> </label><br><br>
+    <label> Количество персонала: <input type="number" name="staff_amount" required> </label><br><br>
+
+<button type="submit">Сохранить</button>
+</form>
+</body>
+</html>

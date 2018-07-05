@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Результат</title>
+</head>
+<body>
+
+<table border = "1">
+         <tr>
+            <td>Название</td>
+            <td>Описание</td>
+            <td>Цена</td>
+            <td>Изображение</td>
+            <td>Дата создания</td>
+            <td>Продано</td>
+
+
+
+         </tr>
+         {% for i in items %}
+             <tr data-item-id = "{{ i.id }}">
+             <td>{{i.name}}</td>
+             <td>{{i.description}}</td>
+             <td>{{i.price}}</td>
+             <td>
+                 {% if i.image %}
+                 <img width=100 src="{{i.image.url}}">
+                 {% endif %}
+             </td>
+             <td>{{i.creation_date}}</td>
+             <td>{{i.is_sold}}</td>
+
+          </tr>
+         {% endfor %}
+        </table>
+
+</body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Результаты запросов</title>
+</head>
+<body>
+<table border = "1">
+    <tr>
+        <td>Задание</td>
+        <td>Ответ</td>
+    </tr>
+         {% for k,v in dict_new.items %}
+             <tr>
+             <td>{{k}}</td>
+             <td>{{v}}</td>
+             </tr>
+         {% endfor %}
+        </table>
+</body>
+</html>
