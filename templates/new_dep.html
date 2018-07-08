@@ -9,9 +9,9 @@
 {% endif %}
 <form method="post">
 {% csrf_token %}
-    <label> Название: <input type="text" name="sphere" value = {{sphere}} > </label><br><br>
-    <label> Описание: <input type="text" name="description" value = {{description}} > </label><br><br>
-    <label> Количество персонала: <input type="number" name="staff_amount" value = {{staff_amount}}> </label><br><br>
+    <label> Название: <input type="text" name="sphere" value = {{sphere}} > </label><br><br><br>
+    <label> Описание: <input type="text" name="description" value = {{description}} > </label><br><br><br>
+    <label> Количество персонала: <input type="number" name="staff_amount" value = {{staff_amount}}> </label><br><br><br>
 <button type="submit">Сохранить</button>
 </form>
 </body>
