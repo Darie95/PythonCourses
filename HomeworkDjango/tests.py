@@ -25,12 +25,11 @@ class ItemTests(TestCase):
 
     def test_item_create(self):
         self.driver.get('http://localhost:8000/item_create/')
-        new_name = ''.join(random.choice(string.ascii_lowercase) for _ in range(10))
+        new_name = ''.join(
+            random.choice(string.ascii_lowercase) for _ in range(10))
         self.driver.find_element_by_id('id_name').send_keys(new_name)
         self.driver.find_element_by_id('id_price').send_keys('100')
         self.driver.find_element_by_xpath("//select/option[@value='1']").click()
         self.driver.find_element_by_tag_name('button').click()
         sleep(10)
         self.assertTrue(new_name in self.driver.page_source)
-
-
