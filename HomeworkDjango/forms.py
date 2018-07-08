@@ -14,7 +14,10 @@ class SimpleForm(forms.Form):
     price = forms.IntegerField(label='Цена', min_value=5, max_value=3000)
     is_sold = forms.BooleanField(label='Продано')
     creation_date = forms.DateField(
-        label='Дата создания', widget=forms.TextInput(attrs={'class': 'datepicker'}))
+        label='Дата создания',
+        widget=forms.TextInput(
+            attrs={'class': 'datepicker'}
+        ))
 
 
 class PictureWidget(forms.widgets.Widget):
