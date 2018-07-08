@@ -200,6 +200,7 @@ class ItemCreateView(CreateView):
         context['departments'] = Department.objects.all()
         return context
 
+
     def form_valid(self, form):
         model = form.save(commit=False)
         return super(ItemCreateView, self).form_valid(form)

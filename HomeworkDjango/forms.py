@@ -15,7 +15,9 @@ class SimpleForm(forms.Form):
     is_sold = forms.BooleanField(label='Продано')
     creation_date = forms.DateField(
         label='Дата создания',
-        widget=forms.TextInput(attrs={'class': 'datepicker'}))
+        widget=forms.TextInput(
+            attrs={'class': 'datepicker'}
+        ))
 
 
 class PictureWidget(forms.widgets.Widget):
@@ -27,9 +29,18 @@ class PictureWidget(forms.widgets.Widget):
 class ItemCreateForm(forms.ModelForm):
     class Meta:
         image = ImageField(widget=PictureWidget)
+
         model = Item
         fields = ('name', 'description', 'price', 'is_sold', 'department',
                   'creation_date', 'image')
+
+    def __init__(self,*args,**kwargs):
+        super(ItemCreateForm,self).__init__(*args,**kwargs)
+        self.fields['description'].required=False
+        self.fields['price'].required=False
+        self.fields['department'].required=False
+        self.fields['creation_date'].required=False
+
 
 
 class SearchForm(forms.Form):
